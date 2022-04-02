@@ -1,0 +1,19 @@
+org: ambjork
+app: serverless-hw
+# serverless.yml
+
+service: serverless-hw
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+
+  functions:
+    hello:
+        handler: ./handler.hello
+        events:
+            - http:
+                  path: hello
+                  method: GET
+                  cors: true
